@@ -91,6 +91,10 @@
         <article>
             <pre class="prettyprint source linenums"><code>import db = require("../db");
 
+type ConstructorParams = {
+  id: number, role: any
+};
+
 /*
  * Role class
  * @category saltcorn-data
@@ -104,7 +108,7 @@ export default class Role {
    * Role constructor
    * @param {object} o 
    */
-  constructor(o: any) {
+  constructor(o: ConstructorParams) {
     this.id = o.id;
     this.role = o.role;
   }
