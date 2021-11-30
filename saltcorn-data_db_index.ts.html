@@ -109,8 +109,8 @@ const isSQLite = is_sqlite(connectObj);
  */
 const initDbModule = (): typeof sqlite | typeof postgres => {
   let dbmodule: typeof sqlite | typeof postgres | null = null;
-  isSQLite ?
-  dbmodule = require("@saltcorn/sqlite/sqlite") : require("@saltcorn/postgres/postgres");
+  dbmodule = isSQLite ?
+    require("@saltcorn/sqlite/sqlite") : require("@saltcorn/postgres/postgres");
   if (!dbmodule) throw new Error("No database package found.");
   dbmodule.init(getConnectObject);
   return dbmodule;
