@@ -19,7 +19,8 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
           SKIP_DOCKER_IMAGE_INSTALL: "true"
       - run: npm run tsc
-      - run: export NODE_OPTIONS=--max-old-space-size=4096 npm run docs
+      - run: npm run docs
+        env: NODE_OPTIONS=--max-old-space-size=4096       
       - run: ls -lart 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
