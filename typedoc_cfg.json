@@ -11,6 +11,5 @@
     "packages/saltcorn-mobile-builder"
   ],
   "out": "docs",
-  "readme": "deploy/typedoc/documentation_main.md",
-  "githubPages": true
+  "readme": "deploy/typedoc/documentation_main.md"
 }
