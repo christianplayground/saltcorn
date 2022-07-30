@@ -3,6 +3,7 @@
 [![Build and Test](https://github.com/saltcorn/saltcorn/workflows/Node.js%20CI/badge.svg)](https://github.com/saltcorn/saltcorn/actions/workflows/nodejs.yml) [![OpenCollective](https://img.shields.io/badge/OpenCollective-1F87FF?style=flat&logo=OpenCollective&logoColor=black)](https://opencollective.com/saltcorn)
 
 # Saltcorn
+
 Saltcorn is an extensible open source no-code database application builder. Use it to build web applications based on relational data with flexible views, datatypes and layouts.
 
 This repository contains the core codebase, including the code necessary to self-host an instance and to host a multitenant instance.
@@ -203,6 +204,8 @@ npm run tsc
 
 to install everything. If successful, you should now be able to run `saltcorn` in your shell.
 
+NOTE: the installation builds the 'saltcorn/cordova-builder' docker image, and the first build takes several minutes. You can set the environment variable SKIP_DOCKER_IMAGE_INSTALL to 'true' (or disable docker) if you don't want to build it.
+
 ## Packages
 
 - [@saltcorn-cli](https://github.com/saltcorn/saltcorn/tree/master/packages/saltcorn-cli): command-line interface
@@ -250,21 +253,24 @@ but this is not a production build, so run
 
 when done
 
-### Build jsdocs
+### Build tsdocs
 
-`npm istall -g jsdoc`
+```
+npm install --legacy-peer-deps
+npm run tsc
+```
 
 then
 
-`jsdoc -c deploy/jsdoc.conf.json`
+`npm run docs`
 
 JSDocs will then be available in `docs/`.
 
 To deploy these to https://saltcorn.github.io/jsdocs/:
 
 ```
-cp -R docs/* /path/to/jsdocs
-cd /path/to/jsdocs
+cp -R docs/* /path/to/tsdocs
+cd /path/to/tsdocs
 git add .
 git commit -am 'version number or other message...'
 ```

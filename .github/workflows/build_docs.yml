@@ -17,6 +17,7 @@ jobs:
       - run: npm install --legacy-peer-deps
         env:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+          SKIP_DOCKER_IMAGE_INSTALL: "true"
       - run: npm run tsc
       - run: export NODE_OPTIONS=--max-old-space-size=4096 npm run docs
       - name: Deploy
